@@ -1,6 +1,7 @@
 import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
-export default SubNav = (props) => {
+const SubNav = (props) => {
 	return(
 		<Link to={props.page}></Link>
 	)
