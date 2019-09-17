@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SubNav from './SubNav';
 
 const Nav = ({ menu }) => {
@@ -7,9 +7,11 @@ const Nav = ({ menu }) => {
 		<nav>
 			<ul>
 				{menu.map(page => (
-					<li>
-						<Link to={page.url} key={page.url}>{page.name}</Link>
-						<SubNav />
+					<li key={page.id}>
+						<NavLink to={page.url} key={page.url} activeClassName="active">
+							{page.img ? <img src={page.img} alt={page.title} /> : page.title}
+						</NavLink>
+						{page.submenu ? <SubNav submenu={page.submenu} /> : null}
 					</li>
 				))}
 			</ul>
